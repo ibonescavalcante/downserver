@@ -1,3 +1,10 @@
+# Produção (VPS Linux com Let's Encrypt no host):
+#   docker compose -f docker-compose.ssl.yml up -d --build
+#
+# Requisitos: Apache parado; certificados em
+#   /etc/letsencrypt/live/80.32.109.208.host.secureserver.net/
+# Ajuste docker/nginx/ssl/production.conf se o FQDN mudar.
+
 services:
 
   php:
@@ -26,8 +33,9 @@ services:
       - "443:443"
     volumes:
       - ./:/var/www
-      - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./docker/nginx/ssl/production.conf:/etc/nginx/conf.d/default.conf:ro
       - ./docker/nginx/snippets:/etc/nginx/snippets:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     depends_on:
       - php
 
