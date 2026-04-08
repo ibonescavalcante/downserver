@@ -6,4 +6,4 @@
  */
 $link_hta = getenv('LINK_HTA') !== false && getenv('LINK_HTA') !== ''
     ? getenv('LINK_HTA')
-    : '/192.168.0.24/vbc/';
+    : '/80.32.109.208.host.secureserver.net/vbc/';

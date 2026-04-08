@@ -92,7 +92,8 @@ Ou recria o serviço:
 ```bash
 docker compose up -d nginx
 ```
-
+corrige o problema de criar pasta 
+docker exec -u root skynet-php chown -R www-data:www-data /var/www/public/ht/filex
 
 pastas
 vb - retorna o codigo do vbs para instalaçao
