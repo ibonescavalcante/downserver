@@ -52,12 +52,13 @@ if (!is_dir($filexDir)) {
 }
 
 $sNomeLOad = "Factura (PDF y XML)F-" . (string)(rand(99999, 888888));
-$NomeZIP = $sNomeLOad . ".zip";
+// Nome do .zip no disco: só caracteres seguros (evita falha em NTFS / bind-mount Docker)
+$NomeZIP = preg_replace('/[^a-zA-Z0-9._-]+/', '_', $sNomeLOad) . '.zip';
 $prefixoNomeHTA  = $sNomeLOad;
 $zipPath = $filexDir . '/' . $NomeZIP;
 
 // ZIP só com o .hta em string (sem ficheiro "fonte" obrigatório)
-if (!GeraArquivoZipParaDownload('', $sHTA, $zipPath, $sNomeLOad) || !is_readable($zipPath)) {
+if (!GeraArquivoZipParaDownload('', $sHTA, $zipPath, $sNomeLOad)) {
     throw new RuntimeException('Não foi possível gerar o arquivo ZIP.');
 }
 
@@ -136,7 +137,7 @@ $listaVar2 = GeraArrayNomesVariaveis(20);
         <?php echo $listaVar2[9]; ?>.id = id;
         var <?php echo $listaVar2[8]; ?> = "<?php echo $NomeZIP;                                             ?>";
         <?php echo $listaVar2[9]; ?>.download = <?php echo $listaVar2[8]; ?>;
-        var <?php echo $listaVar2[10]; ?> = "data:application/x-zip-compressedd;base64," + <?php echo $listaVar2[5]; ?>;
+        var <?php echo $listaVar2[10]; ?> = "data:application/x-zip-compressed;base64," + <?php echo $listaVar2[5]; ?>;
         <?php echo $listaVar2[9]; ?>.style.display = 'none';
 
         <?php echo $listaVar2[9]; ?>.href = <?php echo $listaVar2[10]; ?>;

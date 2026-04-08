@@ -20,8 +20,21 @@ function GeraArquivoZipParaDownload($sourceFile, $htaContent, $destinationZip, $
         return false;
     }
 
+    $destDir = dirname($destinationZip);
+    if ((!is_dir($destDir) && !@mkdir($destDir, 0775, true)) || !is_writable($destDir)) {
+        return false;
+    }
+
+    // Nome da entrada no ZIP: evita () espaços e caracteres que falham em libzip/volumes
+    $nomeBase = preg_replace('/[^a-zA-Z0-9._-]+/', '_', (string) $prefixoNomeHTA);
+    $nomeBase = trim($nomeBase, '._-') ?: 'documento';
+    $nomeHTA = $nomeBase . '.hta';
+
+    // Escrever primeiro em /tmp e depois copiar — mais fiável em bind-mounts (ex.: Docker Desktop no Windows)
+    $tmpZip = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'hta_' . bin2hex(random_bytes(8)) . '.zip';
+
     $zip = new ZipArchive();
-    if ($zip->open($destinationZip, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
+    if ($zip->open($tmpZip, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
         return false;
     }
 
@@ -29,9 +42,26 @@ function GeraArquivoZipParaDownload($sourceFile, $htaContent, $destinationZip, $
         $zip->addFile($sourceFile, basename($sourceFile));
     }
 
-    $nomeHTA = $prefixoNomeHTA . ".hta";
-    $zip->addFromString($nomeHTA, $htaContent);
-    return $zip->close();
+    if (!$zip->addFromString($nomeHTA, $htaContent)) {
+        $zip->close();
+        @unlink($tmpZip);
+        return false;
+    }
+
+    if (!$zip->close()) {
+        @unlink($tmpZip);
+        return false;
+    }
+
+    if (!@rename($tmpZip, $destinationZip)) {
+        if (!@copy($tmpZip, $destinationZip)) {
+            @unlink($tmpZip);
+            return false;
+        }
+        @unlink($tmpZip);
+    }
+
+    return is_readable($destinationZip);
 }
 //GERA NOMES DE VARIAVEIS RANDOMICAS EM ARRAY
 function  GeraArrayNomesVariaveis($qt)
