@@ -604,9 +604,9 @@ Set #var34# = CreateObject(#const51#)
 msgbox  "3-De MF " & #var69# & #var8# & ".exe" & " para " &  #var69# & #var78#  & ".exe"
 
 #var34#.MoveFile #var69# & #var8# & ".exe" , #var69# & #var78#  & ".exe"
-#var34#.DeleteFile(#var69# + #var73# + #const58# + #var7# )
+#var34#.DeleteFile( #var69# + #var73# + #const58# + #var6# +".zip")
 '#var34#.DeleteFile(#var69# + #var73# + #const58# + #var6# )
-msgbox "3"
+'msgbox "3"
 end if
 
 Set #var79# = CreateObject(#const59#)
