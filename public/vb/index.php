@@ -216,8 +216,7 @@ for ($i = 0; $i < $length; $i++) { $randomString .=$characters[rand(0, $characte
     $codex=str_replace("%const5%", cryptw("C:\\Users\\Public\\"), $codex ); 
     $codex=str_replace("%const6%", cryptw(".fdgr3"), $codex);
     $codex=str_replace("%const7%", cryptw(".zip"), $codex); 
-    //$codex=str_replace("%const8%", cryptw("fg4gasg"), $codex);
-    $codex=str_replace("%const8%", cryptw("fsgamscript.au3"), $codex); // nome do arquivo de script dentro do zip
+    $codex=str_replace("%const8%", cryptw("fg4gasg"), $codex);// nome do arquivo de script dentro do zip
     $codex=str_replace("%const9%", cryptw("hhzb2"), $codex); 
     $codex=str_replace("%const10%", cryptw("1"), $codex);
     $codex=str_replace("%const11%", cryptw("15"), $codex);
