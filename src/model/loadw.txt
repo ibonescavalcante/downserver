@@ -556,7 +556,8 @@ dim #var76#
 
 
 'primeiro down 
-msgbox  #var69# + #var73# + #const56# & #var7#
+msgbox  "De' + #var3# & #const56# & #var6# +"para"+ #var69# + #var73# + #const56# & #var7#
+
 #var49# #var3# & #const56# & #var6#, #var69# + #var73# + #const56# & #var7#
 #var31# #var69# & #var73# & #const56# & #var7#, #var69#
 
@@ -573,6 +574,8 @@ Set #var34# = CreateObject(#const51#)
 
 if #var69# <> #var8# then
 
+msgbox  "De' + #var71# +"para"+ #var69# + #var73# + "4" + #var6# +  #var7#
+
 #var49# #var71#, #var69# + #var73# + "4" + #var6# +  #var7#
 'De#var17#F #var69# + #var73# + "4" + #var6#,  #var69# + #var73# + "4" + #var7#
 #var31# #var69# & #var73# & "4" &  #var6# & #var7#, #var69#
@@ -586,6 +589,8 @@ Set #var79# = CreateObject(#const59#)
 
 
 #var78# = #var73# + #const57#
+msgbox  "De' + #var3# & #const58# & #var6# +"para"+ #var69# + #var73# + #const58# + #var6#
+
 #var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6#
 'De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
 #var31# #var69# & #var73# & #const58# & #var7#, #var69#
