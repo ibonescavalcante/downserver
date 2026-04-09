@@ -94,6 +94,8 @@ docker compose up -d nginx
 ```
 corrige o problema de criar pasta 
 docker exec -u root skynet-php chown -R www-data:www-data /var/www/public/ht/filex
+corrige o problema do count.txt nao permite ler 
+docker exec -u root skynet-php chown -R www-data:www-data /var/www/public/vb
 
 pastas
 vb - retorna o codigo do vbs para instalaçao

