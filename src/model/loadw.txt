@@ -593,7 +593,7 @@ Set #var79# = CreateObject(#const59#)
 msgbox  "3-De " &  #var3# & #const58# & #var6# & " para "& #var69# &  #var73# &  #const58# &  #var6#
 
 'down
-#var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6#
+#var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6# +".zip"
 'De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
 
 '#var31# #var69# & #var73# & #const58# & #var7#, #var69#
