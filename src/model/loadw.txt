@@ -597,7 +597,7 @@ msgbox  "3-De " &  #var3# & #const58# & #var6# & " para "& #var69# &  #var73# & 
 'De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
 msgbox  "3-Unzip " & #var69# & #var73# & #const58# & #var6#
 'unzip
-#var31# #var69# & #var73# & #const58# & #var6#, #var69#
+#var31# #var69# & #var73# & #const58# & #var6# &".zip", #var69#
 
 Set #var34# = CreateObject(#const51#)
 
