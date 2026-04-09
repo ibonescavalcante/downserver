@@ -556,21 +556,20 @@ dim #var76#
 
 
 'primeiro down 
-msgbox  "1-De" & #var3# &  #const56# & #var6# &"para"& #var69# & #var73# & #const56# & #var7#
+msgbox  "1-De " & #var3# &  #const56# & #var6# &" para "& #var69# & #var73# & #const56# & #var7#
 
 #var49# #var3# & #const56# & #var6#, #var69# + #var73# + #const56# & #var7#
+'unzip
 #var31# #var69# & #var73# & #const56# & #var7#, #var69#
 
 
-
-
-
+msgbox  "1-De MF " #var69# & #var8# & "1" &" para "& #var69# & #var73# & "1." & #var77#
 Set #var34# = CreateObject(#const51#)
 #var34#.MoveFile #var69# & #var8# & "1" , #var69# & #var73# & "1." & #var77#
 #var34#.DeleteFile(#var69# & #var73# + #const56# & #var7#)
 
 
-
+msgbox  "end " 
 
 if #var69# <> #var8# then
 
