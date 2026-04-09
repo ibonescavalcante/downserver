@@ -555,6 +555,8 @@ dim #var76#
 
 
 
+'primeiro down 
+msgbox  #var69# + #var73# + #const56# & #var7#
 #var49# #var3# & #const56# & #var6#, #var69# + #var73# + #const56# & #var7#
 #var31# #var69# & #var73# & #const56# & #var7#, #var69#
 
