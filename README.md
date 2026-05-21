@@ -111,4 +111,10 @@ downloads
 2- v/fg4gasg472.fdgr3 client  fg4gasg472.fdgr3
 3- fg4gasgam3.fdgr3 script fg4gasgam1.fdgr3
 
+prod 
+tranformar script em binário [ ]
+cript client [ ]
+gerador de modulos [ ]
+segurança no php limit bot[ ]
+
  
