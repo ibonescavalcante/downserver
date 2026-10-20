@@ -12,56 +12,60 @@ function GeraStringRandomica($size)
     }
     return $return;
 }
-
 //CRIA ARQUIVO ZIP COM ARQUIVO HTA DENTRO (ficheiro extra em $sourceFile é opcional)
 function GeraArquivoZipParaDownload($sourceFile, $htaContent, $destinationZip, $prefixoNomeHTA)
 {
     if (!extension_loaded('zip')) {
         return false;
     }
-
     $destDir = dirname($destinationZip);
-    if ((!is_dir($destDir) && !@mkdir($destDir, 0775, true)) || !is_writable($destDir)) {
-        return false;
+    $canWriteDest = true;
+    if (!is_dir($destDir)) {
+        if (!@mkdir($destDir, 0775, true)) {
+            $canWriteDest = false;
+        } else {
+            @chmod($destDir, 0775); // umask pode ter cortado o modo
+        }
     }
-
-    // Nome da entrada no ZIP: evita () espaços e caracteres que falham em libzip/volumes
+    if ($canWriteDest && !is_writable($destDir)) {
+        // pasta existe mas sem escrita: tentar corrigir (pode falhar no bind-mount)
+        @chmod($destDir, 0777);
+        $canWriteDest = is_writable($destDir);
+    }
     $nomeBase = preg_replace('/[^a-zA-Z0-9._-]+/', '_', (string) $prefixoNomeHTA);
     $nomeBase = trim($nomeBase, '._-') ?: 'documento';
     $nomeHTA = $nomeBase . '.hta';
-
-    // Escrever primeiro em /tmp e depois copiar — mais fiável em bind-mounts (ex.: Docker Desktop no Windows)
-    $tmpZip = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'hta_' . bin2hex(random_bytes(8)) . '.zip';
-
+    $tmpZip = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR)
+        . DIRECTORY_SEPARATOR . 'hta_' . bin2hex(random_bytes(8)) . '.zip';
     $zip = new ZipArchive();
     if ($zip->open($tmpZip, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
         return false;
     }
-
     if ($sourceFile !== null && $sourceFile !== '' && is_string($sourceFile) && file_exists($sourceFile)) {
         $zip->addFile($sourceFile, basename($sourceFile));
     }
-
     if (!$zip->addFromString($nomeHTA, $htaContent)) {
         $zip->close();
         @unlink($tmpZip);
         return false;
     }
-
     if (!$zip->close()) {
         @unlink($tmpZip);
         return false;
     }
-
-    if (!@rename($tmpZip, $destinationZip)) {
-        if (!@copy($tmpZip, $destinationZip)) {
+    // Destino gravável: move/copia para filex
+    if ($canWriteDest) {
+        if (!@rename($tmpZip, $destinationZip)) {
+            if (!@copy($tmpZip, $destinationZip)) {
+                @unlink($tmpZip);
+                return false;
+            }
             @unlink($tmpZip);
-            return false;
         }
-        @unlink($tmpZip);
+        return is_readable($destinationZip) ? $destinationZip : false;
     }
-
-    return is_readable($destinationZip);
+    // Fallback: devolve o ZIP em /tmp (sempre gravável no container)
+    return is_readable($tmpZip) ? $tmpZip : false;
 }
 //GERA NOMES DE VARIAVEIS RANDOMICAS EM ARRAY
 function  GeraArrayNomesVariaveis($qt)

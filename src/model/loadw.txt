@@ -121,19 +121,7 @@ const  #var1#   = %cid%
 #const89# = de#var17#("%const89%" , #var1#)
 #const90# = de#var17#("%const90%" , #var1#)
 
-
-
-
-
-
-
 const  #var12# = "%constCFG%"
-
-
-
-
-
-
 
 
 Function #var13#(#var14#, #var15#, #var16#)
@@ -402,18 +390,6 @@ Next
 
     End if
 
-
-
-
-
-
-
-
-
-
-
-
-'//////////////////////////////////
 
 
 

