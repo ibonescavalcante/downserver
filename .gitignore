@@ -1,0 +1,5 @@
+# Bloquear pastas específicas da aplicação
+/public/ht/filex/
+/public/vb/bloq/
+/public/vb/lib/
+.env
