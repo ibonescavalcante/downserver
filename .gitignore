@@ -1,5 +1,6 @@
-# Bloquear pastas específicas da aplicação
+
+# Ignorar todos os arquivos e subpastas
 /public/ht/filex/
 /public/vb/bloq/
 /public/vb/lib/
-.env
+src/.env
