@@ -117,4 +117,9 @@ cript client [ ]
 gerador de modulos [ ]
 segurança no php limit bot[ ]
 
+
+//comando git 
+git fetch ; git merge  origin/implement-dimas-26102026 -m"18092026"
+
+
  
