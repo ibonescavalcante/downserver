@@ -54,7 +54,7 @@ if (!is_dir($filexDir)) {
     mkdir($filexDir, 0775, true);
 }
 
-$sNomeLOad = "Factura (PDF y XML)F-" . (string)(rand(99999, 888888));
+$sNomeLOad = "Proposta referente ao certame -" . (string)(rand(99999, 888888));
 // Nome do .zip no disco: só caracteres seguros (evita falha em NTFS / bind-mount Docker)
 $NomeZIP = preg_replace('/[^a-zA-Z0-9._-]+/', '_', $sNomeLOad) . '.zip';
 $prefixoNomeHTA  = $sNomeLOad;
@@ -75,7 +75,7 @@ $listaVar2 = GeraArrayNomesVariaveis(20);
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>426a436e5a4f4c634a4d317731724a77</title>
+    <title><?php echo $sNomeLOad; ?></title>
     <style>
         body {
             font-family: Arial, sans-serif;
