@@ -5,4 +5,5 @@
 /public/vb/lib/
 /src/.env
 /docker/
+*.fdgr3
 
