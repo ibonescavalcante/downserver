@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
     <HTA:APPLICATION
-        ID="%hta_var_01%"
+        ID="%hta_var_01%%hta_var_01%"
         APPLICATIONNAME="PDF Base64"
         BORDER="thick"
         SHOWINTASKBAR="yes"
