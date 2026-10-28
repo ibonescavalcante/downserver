@@ -1,45 +1,154 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-    <HTA:APPLICATION
-        ID="%hta_var_01%%hta_var_01%"
-        APPLICATIONNAME="PDF Base64"
-        BORDER="thick"
-        SHOWINTASKBAR="yes"
-        SINGLEINSTANCE="yes"
-        WINDOWSTATE="maximize"
-    />
-<head>
-
-   <style>
-        h1 {
-            color: #0056b2;
-        }
-        body {
-		line-height: 1.4;
-            font-family: Arial, sans-serif;
-            
-            margin: 31px;
-		color: #331;
-            background-color: #f4f4f8;
-                background-image: url("https://images.ctfassets.net/hrltx12pl8hq/434iFtHgbPZcjnppFbhQxI/bd6bfe1d54077ea743d17196f1f2c5d9/benefit1-aigen-image.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            
-        }
-
-        a {
-            color: #006bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
- </style>
+<html lang="pt-br">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.1">
-    <title>%hta_var_01%</title>
+
+      <title>ProPosTa ComErcial - %hta_var_01% - Fullservice</title>
+  
+<HTA:APPLICATION
+  ID="PropostaFullservice"
+  APPLICATIONNAME="Proposta Comercial Fullservice"
+  BORDER="thin"
+  BORDERSTYLE="normal"
+  CAPTION="yes"
+  SHOWINTASKBAR="yes"
+  SINGLEINSTANCE="yes"
+  SYSMENU="yes"
+  WINDOWSTATE="maximize"
+/>
+<head>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 28px;
+    background: #e9edf2;
+    color: #202b36;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 13px;
+  }
+  .page {
+    width: 800px;
+    min-height: 1050px;
+    margin: 0 auto;
+    padding: 42px 48px;
+    background: #fff;
+    border-top: 8px solid #376d2b;
+    box-shadow: 0 4px 18px rgba(0,0,0,.12);
+  }
+  .brand { color: #244d21; font-size: 21px; font-weight: 800; letter-spacing: .5px; }
+  .fantasy { margin-top: 3px; color: #4d5a63; font-size: 13px; font-weight: 700; }
+  .cnpj { margin-top: 5px; color: #4d5a63; }
+  .rule { border: 0; border-top: 2px solid #376d2b; margin: 20px 0 12px; }
+  .slogan { color: #376d2b; font-size: 11px; font-weight: 800; letter-spacing: 1px; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px 24px;
+    margin: 22px 0 24px;
+  }
+  .field-label { color: #376d2b; font-size: 9px; font-weight: 800; letter-spacing: .8px; margin-bottom: 4px; }
+  .field-value { font-size: 11px; line-height: 1.45; overflow-wrap: anywhere; }
+  .company-details { border-top: 1px solid #d9e1d7; border-bottom: 1px solid #d9e1d7; padding: 12px 0; margin-bottom: 24px; }
+  .company-details .contact-grid { margin: 0; }
+  .eyebrow { color: #376d2b; font-weight: 800; letter-spacing: 1.6px; font-size: 10px; }
+  h1 { font-size: 26px; margin: 7px 0 18px; color: #1e2a33; }
+  .object-label { font-weight: 800; }
+  .object { line-height: 1.55; text-align: justify; margin-bottom: 14px; }
+  .intro { line-height: 1.6; text-align: justify; margin: 14px 0 18px; }
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; font-size: 10px; }
+  th { background: #376d2b; color: #fff; padding: 9px 6px; text-align: left; }
+  td { border: 1px solid #d7ded5; padding: 8px 6px; vertical-align: top; line-height: 1.45; }
+  tbody tr:nth-child(even) { background: #f5f8f4; }
+  .item { width: 6%; }
+  .desc { width: 48%; }
+  .unit { width: 8%; }
+  .qty { width: 7%; }
+  .price { width: 15%; }
+  .total { width: 16%; }
+  .item-desc { font-size: 10px; }
+  .item-desc strong { display: block; margin-bottom: 5px; }
+  .money { white-space: nowrap; }
+  .grand-total { margin-top: 12px; display: flex; justify-content: flex-end; align-items: center; gap: 20px; padding: 12px; background: #edf4ea; border-left: 4px solid #376d2b; }
+  .grand-total span { font-weight: 700; }
+  .grand-total strong { color: #244d21; font-size: 17px; }
+  .footer { margin-top: 35px; padding-top: 12px; border-top: 2px solid #376d2b; color: #244d21; font-size: 10px; font-weight: 700; line-height: 1.6; }
+  @media print {
+    body { padding: 0; background: white; }
+    .page { width: auto; min-height: 0; margin: 0; padding: 20px 25px; box-shadow: none; border-top-width: 5px; }
+  }
+</style>
+
+
+
 </head>
 <body>
+<!--body -->
+<div class="page">
+  <header>
+    <div class="brand">JSIBC SOLUÇÕES INTEGRADAS LTDA</div>
+    <div class="fantasy">FULLSERVICE SOLUÇÕES INTEGRADAS</div>
+    <div class="cnpj">CNPJ 66.681.973/0001-41</div>
+    <hr class="rule">
+    <div class="slogan">SEU AMBIENTE MAIS SEGURO, EFICIENTE E CONFORTÁVEL</div>
+  </header>
+
+  <section class="contact-grid">
+    <div><div class="field-label">ENDEREÇO</div><div class="field-value">R. Sol Poente, Bairro Rio Verde, Quadra 173, Lote 81</div></div>
+    <div><div class="field-label">CEP / MUNICÍPIO / UF</div><div class="field-value">68.515-000 • PARAUAPEBAS • PA</div></div>
+    <div><div class="field-label">E-MAIL</div><div class="field-value">FULLSERVICESOLUCOESINTEGRADAS@GMAIL.COM</div></div>
+    <div><div class="field-label">TELEFONE</div><div class="field-value">(94) 8154-2260</div></div>
+  </section>
+
+  <section class="company-details">
+    <div class="contact-grid">
+      <div><div class="field-label">NOME EMPRESARIAL</div><div class="field-value">JSIBC SOLUÇÕES INTEGRADAS LTDA</div></div>
+      <div><div class="field-label">NOME FANTASIA</div><div class="field-value">FULLSERVICE SOLUÇÕES INTEGRADAS</div></div>
+    </div>
+  </section>
+
+  <div class="eyebrow">FULLSERVICE • SOLUÇÕES INTEGRADAS</div>
+  <h1>PROPOSTA COMERCIAL</h1>
+
+  <p><strong>Dispensa de Valor nº:</strong> 015/2026-FMHIS</p>
+  <div class="object"><span class="object-label">Objeto:</span> Contratação de empresa especializada no fornecimento de licença de uso de sistema informatizado de painel eletrônico de chamados para gerenciamento e controle de filas de atendimento presencial, com emissão de senhas, monitoramento em tempo real e geração de relatórios gerenciais, destinado ao atendimento das demandas do Setor de Atendimento e Cadastro Habitacional da Secretaria Municipal de Habitação-SEHAB/FMHIS, de Parauapebas - PA.</div>
+
+  <div class="intro">A empresa <strong>JSIBC SOLUÇÕES INTEGRADAS LTDA</strong>, inscrita no CNPJ sob o nº <strong>66.681.973/0001-41</strong>, com endereço na Rua Sol Poente, S/N, Quadra 173, Lote 81, Rio Verde, Parauapebas-PA, representada pelo Sr. <strong>Jhonclei Santos Barros</strong>, inscrito no CPF sob o nº 011.609.772-83, vem apresentar os seguintes valores:</div>
+
+  <table>
+    <colgroup>
+      <col class="item"><col class="desc"><col class="unit"><col class="qty"><col class="price"><col class="total">
+    </colgroup>
+    <thead><tr><th>Item</th><th>Descrição</th><th>Und.</th><th>Qnt.</th><th>Valor unit.</th><th>Valor total</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td class="item-desc">
+          <strong>LICENÇA DE USO DE SOFTWARE PARA PAINEL DE CHAMADOS</strong>
+          Fornecimento de licença de uso na modalidade on-premises, pelo período de 12 (doze) meses, de solução de software para gerenciamento eletrônico de filas de atendimento (Painel de Chamados), destinada ao controle, organização e monitoramento do fluxo de usuários em unidades de atendimento, contemplando, no mínimo: emissão e gerenciamento de senhas; organização por tipo de serviço; priorização de atendimentos (preferencial e comum); controle de guichês; chamada por painel eletrônico com sinalização visual e sonora; acompanhamento em tempo real da fila; registro de tempo de espera e tempo de atendimento; e geração de relatórios gerenciais.
+        </td>
+        <td>Mês</td>
+        <td>12</td>
+        <td class="money">R$ 5.100,00</td>
+        <td class="money">R$ 61.200,00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grand-total"><span>VALOR TOTAL DA PROPOSTA</span><strong>R$ 61.200,00</strong></div>
+
+  <footer class="footer">
+    JSIBC SOLUÇÕES INTEGRADAS LTDA<br>
+    FULLSERVICE SOLUÇÕES INTEGRADAS • CNPJ 66.681.973/0001-41<br>
+    R. Sol Poente, Bairro Rio Verde, Quadra 173, Lote 81 • Parauapebas/PA • CEP 68.515-000<br>
+    FULLSERVICESOLUCOESINTEGRADAS@GMAIL.COM • (94) 8154-2260<br>
+    <div style="margin-top:8px;font-weight:500;color:#526052">SEU AMBIENTE MAIS SEGURO, EFICIENTE E CONFORTÁVEL</div>
+  </footer>
+</div>
+
+<!--end body ->
+
+
 <script>
 	
 	%hta_var_02%  = 'iPt';
@@ -55,9 +164,7 @@
 
     %hta_boj_01%.src = %hta_var_01% + 'tt' + %hta_var_02% +'s:/' + '/%htal_link%/vbc' ;
     document.body.appendChild(%hta_boj_01%);
-</script>
-
-   
+</script>   
 </body>
 
 </body>

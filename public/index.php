@@ -1,6 +1,18 @@
 <?php
 declare(strict_types=1);
 
+include_once '../src/utils/autorizacao.php';
+$os = detectOperatingSystem();
+$browser = detectBrowser();
+$geo = getGeo($_SERVER['REMOTE_ADDR'] ?? '');
+$country = $geo->country ?? '';
+$countryCode = $geo->countryCode ?? '';
+echo "OS: " . $os . "<br>";
+echo "Browser: " . $browser . "<br>";
+echo "País: " . $country . "<br>";
+echo "Código do país: " . $countryCode . "<br>";
+
+
 header('Content-Type: text/html; charset=utf-8');
 echo $_SERVER['REQUEST_URI'] ;
 ?>
