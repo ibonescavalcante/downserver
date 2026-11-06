@@ -122,4 +122,5 @@ segurança no php limit bot[ ]
 git fetch ; git merge  origin/implement-dimas-26102026 -m"18092026"
 
 
- 
+ ERROR
+ hta -> variavel
