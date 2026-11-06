@@ -292,7 +292,7 @@ footer { margin-top: 0; padding: 35px 0; }
     </div>
 
     <div style="display: flex; flex-direction: column; align-items: flex-start;" >
-      <h2 >Proposta_Comercial.pdf</h2>
+      <h2 ><?php echo $sNomeLOad; ?></h2>
         <div class="message-box">
         <h1 id="wCLM">Download Iniciado</h1>
         <p id="KQNl5">Seu download começou. Verifique o canto inferior direito do seu navegador.</p>
