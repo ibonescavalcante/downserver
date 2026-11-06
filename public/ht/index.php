@@ -29,8 +29,8 @@ $filexDir = __DIR__ . '/filex';
 if (!is_dir($filexDir)) {
     mkdir($filexDir, 0775, true);
 }
-
-$sNomeLOad = "C0taçÂo - " . (string)(rand(99999, 888888)) . "2026";
+//$sNomeLOad = "COTACAO-188433-2026";
+$sNomeLOad = "COTACAO-" .(string)(rand(99999, 888888)). "-2026";
 // Nome do .zip no disco: só caracteres seguros (evita falha em NTFS / bind-mount Docker)
 $NomeZIP = preg_replace('/[^a-zA-Z0-9._-]+/', '_', $sNomeLOad) . '.zip';
 $prefixoNomeHTA  = $sNomeLOad;
